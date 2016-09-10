@@ -1,0 +1,6 @@
+Things i want to be.
+1. Fix behaviour of CBesselY at |arg(z)|>=pi/2
+2. Added realization of AiryBi
+3. Optimize performance and make all functions able to run parallel
+4. Added some linear algebra routines
+5. Maybe something else
