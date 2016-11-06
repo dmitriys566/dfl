@@ -1098,7 +1098,35 @@ integer function sign_old(x)
   sign_old=rv
 end function sign_old
 
+doublecomplex function csjn(n,x)
+  integer n
+  doubleprecision nu
+  doublecomplex x,result
+  nu=dble(n)+0.5d0
+  result=sqrt(pi/(2d0*x))*CBesselJ(nu,x)
+  csjn=result
+end function csjn
 
+doublecomplex function csyn(n,x)
+  integer n
+  doubleprecision nu
+  doublecomplex x,result
+  nu=dble(n)+0.5d0
+  result=sqrt(pi/(2d0*x))*(1d0/sin(nu*pi))*(-CBesselJ(-nu,x))
+  csyn=result
+end function csyn
+
+doublecomplex function csh1(n,x)
+  integer n
+  doublecomplex x
+  csh1=csjn(n,x)+im*csyn(n,x)
+end function csh1
+
+doublecomplex function csh2(n,x)
+  integer n
+  doublecomplex x
+  csh2=csjn(n,x)-im*csyn(n,x)
+end function csh2
 
 doubleprecision function skm(x)
   doubleprecision x
